@@ -39,13 +39,21 @@
                         </p>
 
                         <div class="flex flex-wrap gap-3">
-                            <a href="#contact" class="inline-block px-5 py-2 bg-[#1b1b18] text-white rounded-sm">Get in touch</a>
-                            <a href="#features" class="inline-block px-5 py-2 border border-black rounded-sm">See features</a>
+                            <a href="#contact" class="inline-block px-5 py-2 bg-[#1b1b18] text-white rounded-sm transition-all duration-150 hover:-translate-y-px hover:shadow-xs focus:outline-none focus:ring-2 focus:ring-[#1b1b18]/20">
+                                Get in touch
+                            </a>
+
+                            <a href="#features" class="inline-block px-5 py-2 border border-black rounded-sm transition-all duration-150 hover:-translate-y-px hover:border-[#1915014a] hover:shadow-xs focus:outline-none focus:ring-2 focus:ring-[#1b1b18]/20">
+                                See features
+                            </a>
                         </div>
                     </div>
 
-                    <div class="bg-white dark:bg-[#161615] border border-[#e3e3e0] dark:border-[#3E3E3A] rounded-lg p-6 shadow-sm">
-                        <h2 class="font-medium mb-4">Quick stats</h2>
+                    <div class="relative overflow-hidden bg-white dark:bg-[#161615] border border-[#e3e3e0] dark:border-[#3E3E3A] rounded-xl p-6 shadow-[inset_0_0_0_1px_rgba(26,26,0,0.06)]">
+                        <div class="pointer-events-none absolute -top-24 -right-24 w-64 h-64 rounded-full bg-[#1b1b18]/5 dark:bg-[#fffb]/10 blur-2xl"></div>
+                        <div class="pointer-events-none absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-[#1b1b18]/5 dark:bg-[#fffb]/10 blur-2xl"></div>
+
+                        <h2 class="relative font-semibold mb-4">Quick stats</h2>
                         <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="p-4 rounded-md bg-[#FDFDFC] dark:bg-[#0a0a0a] border border-[#e3e3e0] dark:border-[#3E3E3A]">
                                 <dt class="text-sm text-[#706f6c] dark:text-[#A1A09A]">Pages</dt>
@@ -118,7 +126,7 @@
 
             {{-- Contact --}}
             <section id="contact" class="max-w-6xl mx-auto px-6 pb-16">
-                <div class="bg-white dark:bg-[#161615] border border-[#e3e3e0] dark:border-[#3E3E3A] rounded-lg p-8">
+                <div class="bg-white dark:bg-[#161615] border border-[#e3e3e0] dark:border-[#3E3E3A] rounded-xl p-8 shadow-[inset_0_0_0_1px_rgba(26,26,0,0.06)] relative overflow-hidden">
                     <h2 class="text-2xl font-semibold mb-2">Contact</h2>
                     <p class="text-[#706f6c] dark:text-[#A1A09A] mb-6 text-sm">This form is static for now—wire it up to your controller later.</p>
 
