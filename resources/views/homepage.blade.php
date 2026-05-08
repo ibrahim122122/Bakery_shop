@@ -798,8 +798,139 @@
 <!-- ════ SEARCH OVERLAY ════ -->
 <div id="search-overlay">
   <div class="search-container">
-    <input type="text" id="search-input" class="search-input" placeholder="Search products..." />
-    <div id="search-results" class="search-results"></div>
+    <a href="{{ url('/') }}" class="back-link" style="display:inline-block;margin-bottom:1rem;text-decoration:none;color:var(--muted);border-bottom:1px solid var(--gold-20);padding-bottom:.25rem;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;">← Back to Noir</a>
+
+    <div class="header" style="text-align:center;margin-bottom:2rem;">
+      <h1 class="serif" style="color:var(--gold);font-size:2.2rem;font-weight:400;margin:0;">Discover Noir</h1>
+      <p style="margin:.5rem 0 0;color:var(--muted);font-size:1rem;">Find your perfect piece with intelligent search and curation.</p>
+    </div>
+
+    <div class="search-section" style="background:rgba(15,15,15,0.96);border:1px solid rgba(201,169,110,0.14);border-radius:16px;padding:1.75rem;margin-bottom:1.5rem;">
+      <div class="search-input-group" style="position:relative;margin-bottom:1.5rem;">
+        <input type="text" id="search-input" class="search-input" placeholder="Search for jackets, shirts, accessories..." />
+        <button class="search-btn" id="search-btn" type="button" aria-label="Search" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--gold);cursor:pointer;padding:.5rem;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="ai-helper" style="background:rgba(201,169,110,0.05);border:1px solid rgba(201,169,110,0.2);border-radius:12px;padding:1.25rem;margin-bottom:1.25rem;">
+        <h3 style="color:var(--gold);margin:0 0 1rem;font-size:1.1rem;font-weight:600;">AI-Powered Suggestions</h3>
+        <div class="ai-suggestions" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+          <div class="ai-suggestion" data-query="black leather jacket" style="background:rgba(255,255,255,0.02);padding:1rem;border-radius:8px;border:1px solid rgba(201,169,110,0.08);cursor:pointer;transition:all 0.2s ease;">Black leather jacket</div>
+          <div class="ai-suggestion" data-query="minimalist white shirt" style="background:rgba(255,255,255,0.02);padding:1rem;border-radius:8px;border:1px solid rgba(201,169,110,0.08);cursor:pointer;transition:all 0.2s ease;">Minimalist white shirt</div>
+          <div class="ai-suggestion" data-query="wool overcoat" style="background:rgba(255,255,255,0.02);padding:1rem;border-radius:8px;border:1px solid rgba(201,169,110,0.08);cursor:pointer;transition:all 0.2s ease;">Wool overcoat</div>
+          <div class="ai-suggestion" data-query="designer sneakers" style="background:rgba(255,255,255,0.02);padding:1rem;border-radius:8px;border:1px solid rgba(201,169,110,0.08);cursor:pointer;transition:all 0.2s ease;">Designer sneakers</div>
+          <div class="ai-suggestion" data-query="silk scarf" style="background:rgba(255,255,255,0.02);padding:1rem;border-radius:8px;border:1px solid rgba(201,169,110,0.08);cursor:pointer;transition:all 0.2s ease;">Silk scarf</div>
+          <div class="ai-suggestion" data-query="tailored trousers" style="background:rgba(255,255,255,0.02);padding:1rem;border-radius:8px;border:1px solid rgba(201,169,110,0.08);cursor:pointer;transition:all 0.2s ease;">Tailored trousers</div>
+        </div>
+      </div>
+
+      <div class="filters-section" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem;margin-bottom:1.25rem;">
+        <div class="filter-group" style="background:rgba(255,255,255,0.02);padding:1.25rem;border-radius:12px;border:1px solid rgba(201,169,110,0.08);">
+          <h4 style="color:var(--gold);margin:0 0 1rem;font-size:1.05rem;font-weight:600;">Category</h4>
+          <div class="filter-options" style="display:flex;flex-direction:column;gap:.5rem;">
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="cat-outerwear" name="category" value="outerwear" />
+              <label for="cat-outerwear" style="color:var(--cream);font-weight:300;">Outerwear</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="cat-shirts" name="category" value="shirts" />
+              <label for="cat-shirts" style="color:var(--cream);font-weight:300;">Shirts</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="cat-pants" name="category" value="pants" />
+              <label for="cat-pants" style="color:var(--cream);font-weight:300;">Pants</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="cat-shoes" name="category" value="shoes" />
+              <label for="cat-shoes" style="color:var(--cream);font-weight:300;">Shoes</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="cat-accessories" name="category" value="accessories" />
+              <label for="cat-accessories" style="color:var(--cream);font-weight:300;">Accessories</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group" style="background:rgba(255,255,255,0.02);padding:1.25rem;border-radius:12px;border:1px solid rgba(201,169,110,0.08);">
+          <h4 style="color:var(--gold);margin:0 0 1rem;font-size:1.05rem;font-weight:600;">Price Range</h4>
+          <div class="price-range" style="display:flex;gap:1rem;align-items:center;">
+            <input type="number" class="price-input" placeholder="Min" id="price-min" style="flex:1;padding:.55rem;background:rgba(255,255,255,0.05);border:1px solid rgba(201,169,110,0.18);border-radius:6px;color:var(--cream);outline:none;" />
+            <span style="color:var(--muted);">to</span>
+            <input type="number" class="price-input" placeholder="Max" id="price-max" style="flex:1;padding:.55rem;background:rgba(255,255,255,0.05);border:1px solid rgba(201,169,110,0.18);border-radius:6px;color:var(--cream);outline:none;" />
+          </div>
+        </div>
+
+        <div class="filter-group" style="background:rgba(255,255,255,0.02);padding:1.25rem;border-radius:12px;border:1px solid rgba(201,169,110,0.08);">
+          <h4 style="color:var(--gold);margin:0 0 1rem;font-size:1.05rem;font-weight:600;">Size</h4>
+          <div class="filter-options" style="display:flex;flex-direction:column;gap:.5rem;">
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="size-xs" name="size" value="xs" />
+              <label for="size-xs" style="color:var(--cream);font-weight:300;">XS</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="size-s" name="size" value="s" />
+              <label for="size-s" style="color:var(--cream);font-weight:300;">S</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="size-m" name="size" value="m" />
+              <label for="size-m" style="color:var(--cream);font-weight:300;">M</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="size-l" name="size" value="l" />
+              <label for="size-l" style="color:var(--cream);font-weight:300;">L</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="size-xl" name="size" value="xl" />
+              <label for="size-xl" style="color:var(--cream);font-weight:300;">XL</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group" style="background:rgba(255,255,255,0.02);padding:1.25rem;border-radius:12px;border:1px solid rgba(201,169,110,0.08);">
+          <h4 style="color:var(--gold);margin:0 0 1rem;font-size:1.05rem;font-weight:600;">Color</h4>
+          <div class="filter-options" style="display:flex;flex-direction:column;gap:.5rem;">
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="color-black" name="color" value="black" />
+              <label for="color-black" style="color:var(--cream);font-weight:300;">Black</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="color-white" name="color" value="white" />
+              <label for="color-white" style="color:var(--cream);font-weight:300;">White</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="color-gray" name="color" value="gray" />
+              <label for="color-gray" style="color:var(--cream);font-weight:300;">Gray</label>
+            </div>
+            <div class="filter-option" style="display:flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="color-brown" name="color" value="brown" />
+              <label for="color-brown" style="color:var(--cream);font-weight:300;">Brown</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-section" style="background:rgba(15,15,15,0.96);border:1px solid rgba(201,169,110,0.14);border-radius:16px;padding:1.75rem;">
+      <div class="results-header" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem;">
+        <div class="results-count" id="results-count" style="color:var(--muted);font-size:1rem;">0 results found</div>
+        <select class="sort-select" id="sort-select" style="padding:.6rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(201,169,110,0.18);border-radius:6px;color:var(--cream);">
+          <option value="relevance">Sort by Relevance</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="newest">Newest First</option>
+        </select>
+      </div>
+
+      <div id="results-container" style="min-height:180px;">
+        <div class="loading" style="text-align:center;padding:1.5rem;color:var(--muted);">
+          <p style="margin:0;">Start typing to search our collection...</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1117,37 +1248,174 @@
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
 
-  // Note: Search button now navigates to search page instead of opening overlay
-  // Remove search overlay functionality as it's handled by dedicated search page
+  // Rebuild homepage search UI/behavior to match search page feel (suggestions + filters + sort + product cards)
 
   searchOverlay.addEventListener('click', (e) => {
-    if (e.target === searchOverlay) {
-      searchOverlay.classList.remove('open');
-    }
+    if (e.target === searchOverlay) searchOverlay.classList.remove('open');
   });
 
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase();
-    searchResults.innerHTML = '';
-    if (query.length > 1) {
-      const products = [
-        'Oversized Wool Coat',
-        'Raw Edge Denim Jacket',
-        'Draped Silk Shirt',
-        'Wide-Leg Trousers',
-        'Merino Turtleneck',
-        'Leather Chelsea Boots'
-      ];
-      const filtered = products.filter(p => p.toLowerCase().includes(query));
-      filtered.forEach(product => {
-        const div = document.createElement('a');
-        div.className = 'search-result';
-        div.href = '#shop';
-        div.textContent = product;
-        searchResults.appendChild(div);
+  const searchBtn = document.getElementById('search-btn');
+  const resultsContainer = document.getElementById('results-container');
+  const resultsCount = document.getElementById('results-count');
+  const sortSelect = document.getElementById('sort-select');
+
+  // Mock products (same dataset as search page, adjusted to match homepage/shop style)
+  const products = [
+    { id: 1, name: 'Oversized Wool Coat', price: 285, category: 'outerwear', color: 'black', size: 's', image: 'https://simple-commerce-1--nsabimanabutais.replit.app/images/product-coat.png', description: 'Deep charcoal double-faced wool' },
+    { id: 2, name: 'Raw Edge Denim Jacket', price: 175, category: 'shirts', color: 'black', size: 'm', image: 'https://simple-commerce-1--nsabimanabutais.replit.app/images/product-jacket.png', description: 'Distressed indigo Japanese denim' },
+    { id: 3, name: 'Draped Silk Shirt', price: 145, category: 'shirts', color: 'white', size: 'xs', image: 'https://simple-commerce-1--nsabimanabutais.replit.app/images/product-shirt.png', description: 'Ivory bias-cut silk with water-print effect' },
+    { id: 4, name: 'Wide-Leg Trousers', price: 195, category: 'pants', color: 'black', size: 'l', image: 'https://simple-commerce-1--nsabimanabutais.replit.app/images/product-trousers.png', description: 'Tailored chalk-stripe suiting fabric' },
+    { id: 5, name: 'Merino Turtleneck', price: 120, category: 'shirts', color: 'gray', size: 'm', image: 'https://simple-commerce-1--nsabimanabutais.replit.app/images/product-turtleneck.png', description: 'Rib-knit in deep forest green' },
+    { id: 6, name: 'Leather Chelsea Boots', price: 320, category: 'shoes', color: 'brown', size: 'xl', image: 'https://simple-commerce-1--nsabimanabutais.replit.app/images/product-boots.png', description: 'Pull-tab silhouette in waxed black leather' }
+  ];
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '<', '>': '>', '"': '"', "'": '&#039;' }[m]));
+  }
+
+  function getCheckedValues(name) {
+    return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(i => i.value);
+  }
+
+  function getNumberOrNull(id) {
+    const v = document.getElementById(id)?.value;
+    if (v === undefined || v === null || v === '') return null;
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function currentQuery() {
+    return (searchInput.value || '').trim();
+  }
+
+  function applyFilters(list, query) {
+    const q = query.toLowerCase();
+
+    const checkedCats = getCheckedValues('category');
+    const checkedSizes = getCheckedValues('size');
+    const checkedColors = getCheckedValues('color');
+
+    const min = getNumberOrNull('price-min');
+    const max = getNumberOrNull('price-max');
+
+    return list.filter(p => {
+      const matchesQuery = !q || p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || p.color.toLowerCase().includes(q);
+
+      const matchesCategory = checkedCats.length === 0 || checkedCats.includes(p.category);
+      const matchesSize = checkedSizes.length === 0 || checkedSizes.includes(p.size);
+      const matchesColor = checkedColors.length === 0 || checkedColors.includes(p.color);
+
+      const matchesMin = min === null || p.price >= min;
+      const matchesMax = max === null || p.price <= max;
+
+      return matchesQuery && matchesCategory && matchesSize && matchesColor && matchesMin && matchesMax;
+    });
+  }
+
+  function sortResults(list, sortValue) {
+    const arr = [...list];
+    if (sortValue === 'price-low') arr.sort((a, b) => a.price - b.price);
+    else if (sortValue === 'price-high') arr.sort((a, b) => b.price - a.price);
+    else if (sortValue === 'newest') arr.reverse(); // mock
+    else {
+      // relevance: simple score by query includes
+      const q = currentQuery().toLowerCase();
+      arr.sort((a, b) => {
+        const sa = (a.name.toLowerCase().includes(q) ? 2 : 0) + (a.category.toLowerCase().includes(q) ? 1 : 0);
+        const sb = (b.name.toLowerCase().includes(q) ? 2 : 0) + (b.category.toLowerCase().includes(q) ? 1 : 0);
+        return sb - sa;
       });
     }
+    return arr;
+  }
+
+  function renderCards(list) {
+    if (list.length === 0) {
+      resultsContainer.innerHTML = '<div class="no-results" style="text-align:center;padding:2rem;color:var(--muted);"><p style="margin:0;">No products found matching your search.</p></div>';
+      resultsCount.textContent = '0 results found';
+      return;
+    }
+
+    resultsCount.textContent = `${list.length} result${list.length === 1 ? '' : 's'} found`;
+
+    const cards = list.map(p => `
+      <div class="product-card" style="background:rgba(255,255,255,0.02);border:1px solid rgba(201,169,110,0.08);border-radius:12px;overflow:hidden;transition:all 0.2s ease;">
+        <div class="product-image" style="width:100%;height:190px;background:var(--card);display:flex;align-items:center;justify-content:center;">
+          <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="product-info" style="padding:1.25rem;">
+          <h3 class="product-name" style="font-family:'Cormorant Garamond',serif;color:var(--cream);font-size:1.1rem;margin:0 0 .6rem;">${escapeHtml(p.name)}</h3>
+          <div class="product-price" style="color:var(--gold);font-size:1.2rem;font-weight:600;margin-bottom:.75rem;">$${p.price}</div>
+          <div class="product-meta" style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">${escapeHtml(p.category)} • ${escapeHtml(p.color)}</div>
+          <button class="btn btn-primary" type="button" style="width:100%;padding:0.75rem 1rem;background:var(--gold);color:#0A0A0A;border:none;border-radius:8px;font-family:inherit;font-size:0.9rem;font-weight:600;cursor:pointer;" onclick="window.__noirHomepageAddToCart(${p.id})">Add to Cart</button>
+        </div>
+      </div>
+    `).join('');
+
+    resultsContainer.innerHTML = `<div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;">${cards}</div>`;
+  }
+
+  function performSearch(query) {
+    const trimmed = (query || '').trim();
+
+    if (!trimmed) {
+      resultsContainer.innerHTML = '<div class="loading" style="text-align:center;padding:1.5rem;color:var(--muted);"><p style="margin:0;">Start typing to search our collection...</p></div>';
+      resultsCount.textContent = '0 results found';
+      return;
+    }
+
+    resultsContainer.innerHTML = '<div class="loading" style="text-align:center;padding:1.5rem;color:var(--muted);"><p style="margin:0;">Searching...</p></div>';
+
+    // Simulate AI delay
+    setTimeout(() => {
+      const filtered = applyFilters(products, trimmed);
+      const sorted = sortResults(filtered, sortSelect.value);
+      renderCards(sorted);
+    }, 350);
+  }
+
+  // AI suggestions
+  document.querySelectorAll('.ai-suggestion').forEach(s => {
+    s.addEventListener('click', () => {
+      searchInput.value = s.dataset.query || '';
+      performSearch(searchInput.value);
+    });
   });
+
+  let searchTimeout;
+  searchInput.addEventListener('input', (e) => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => performSearch(e.target.value), 300);
+  });
+
+  searchBtn?.addEventListener('click', () => performSearch(searchInput.value));
+
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') performSearch(searchInput.value);
+  });
+
+  // Filter changes
+  ['category','size','color','price-min','price-max'].forEach(nameOrId => {
+    const elList = document.querySelectorAll(`input[name="${nameOrId}"]`);
+    if (elList.length) {
+      elList.forEach(el => el.addEventListener('change', () => performSearch(currentQuery())));
+    }
+  });
+  document.getElementById('price-min')?.addEventListener('input', () => performSearch(currentQuery()));
+  document.getElementById('price-max')?.addEventListener('input', () => performSearch(currentQuery()));
+  sortSelect?.addEventListener('change', () => performSearch(currentQuery()));
+
+  // Add to cart from homepage search cards
+  window.__noirHomepageAddToCart = function(productId) {
+    const p = products.find(x => x.id === productId);
+    if (!p) return;
+    addToCart(p.name, p.price);
+    showToast('Added to Cart', p.name + ' added to your bag.');
+  };
+
+  // Keep searchResults for backward compatibility reference (not used after rebuild)
+  searchResults?.addEventListener('click', () => {});
+
 
   // ── Toast ─────────────────────────────
   let toastTimer, toastHideTimer;
